@@ -9,4 +9,4 @@ HTML
 CSS
 
 Introduction
-This is a web implementation of a machine learning, classification project with the goal of predicting Dota 2 game outcomes based on hero selections of each team. 
+This is a web implementation of a machine learning, classification project with the goal of predicting Dota 2 game outcomes based on hero selections of each team.
