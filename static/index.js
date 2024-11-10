@@ -1,5 +1,6 @@
 const ENDPOINT = "http://127.0.0.1:5000"
 
+// List of heroes used for mapping
 const heroes = [
     "Anti-Mage", "Axe", "Bane", "Bloodseeker", "Crystal Maiden",
     "Drow Ranger", "Earthshaker", "Juggernaut", "Mirana", "Morphling",
@@ -26,7 +27,7 @@ const heroes = [
     "Earth Spirit", "Terrorblade", "Phoenix", "Oracle", "Winter Wyvern",
     "Arc Warden"
 ];
-
+// Select the html <select> elements and set their value to a hero
 $(document).ready(function() {
     selectors = $('.hero-selector').each(function (index, element) {
         heroes.forEach( hero => {
@@ -39,9 +40,10 @@ $(document).ready(function() {
 
 
 function app() {
+    // onSubmit functionality
     $('#team-form').submit(function(e) {
         e.preventDefault();
-
+        // Extract value from each <select>
         const team1_heroes = [
             $('select[name="hero1"]').val(),
             $('select[name="hero2"]').val(),
@@ -58,6 +60,7 @@ function app() {
             $('select[name="hero10"]').val()
         ];
 
+        // Create & send POST request
         if (checkUnique(team1_heroes, team2_heroes)) {
             $.ajax({
                 url: `${ENDPOINT}/predict`,  // Ensure the URL matches the Flask server
