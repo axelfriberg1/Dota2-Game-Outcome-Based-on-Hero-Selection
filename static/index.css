@@ -1,0 +1,20 @@
+*{
+    box-sizing: content-box;
+}
+
+body {
+    background-color: rgb(30, 30, 31);
+    color: white;
+}
+
+.input-container {
+    margin-bottom: 5rem;
+}
+
+.form-container {
+    display: flex;
+    background-color: rgb(62, 63, 63);
+    align-items: center;
+    padding-inline: 2rem;
+    color: white;
+}

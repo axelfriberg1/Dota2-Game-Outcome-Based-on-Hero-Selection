@@ -1,0 +1,35 @@
+<html> 
+  <head> 
+    <title>Flask Static Demo</title> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <script src="{{ url_for('static', filename='index.js') }}" defer></script>
+  </head> 
+  <body> 
+    <h1>Dota2 Predictor</h1>
+      <div class="form-container">
+        <form action="" method="post" id="team-form">
+          <h2>Input heroes for team1</h2>
+            <div class="input-container">
+              <select name="hero1" id="" class="hero-selector"></select>
+              <select name="hero2" id="" class="hero-selector"></select>
+              <select name="hero3" id="" class="hero-selector"></select>
+              <select name="hero4" id="" class="hero-selector"></select>
+              <select name="hero5" id="" class="hero-selector"></select>
+            </div>
+            <h2>Input heroes for team2</h2>
+            <div class="input-container">
+              <select name="hero6" id="" class="hero-selector"></select>
+              <select name="hero7" id="" class="hero-selector"></select>
+              <select name="hero8" id="" class="hero-selector"></select>
+              <select name="hero9" id="" class="hero-selector"></select>
+              <select name="hero10" id="" class="hero-selector"></select>
+            </div>
+            <button type="submit">Predict winner</button>
+        </form>
+      </div>
+      <div class="result-container" style="display: none;">
+        <h3></h3>
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </body> 
+</html> 
