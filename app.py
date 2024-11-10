@@ -43,10 +43,11 @@ def predict():
     team1_heroes = data.get("team1_heroes", [])
     team2_heroes = data.get("team2_heroes", [])
 
+    # Empty dataframe with correct hero columns
     new_data_point = pd.DataFrame(np.zeros((1, len(hero_columns))), columns=hero_columns)
     print(new_data_point.shape)
 
-     # Set the hero columns based on the teams (1 for team1, -1 for team2)
+    # Set the hero columns based on the teams (1 for team1, -1 for team2)
     for hero in team1_heroes:
         if hero in new_data_point.columns:
             new_data_point[hero] = 1
@@ -55,14 +56,16 @@ def predict():
             new_data_point[hero] = -1
     
     # Convert to DMatrix
+    # Info about DMatrix here: https://xgboost.readthedocs.io/en/stable/python/python_intro.html
     dmatrix_new_data = xgb.DMatrix(new_data_point)
     print(dmatrix_new_data)
 
 
-    # Predict the probability or class label
+    # Use model to predict class of the new datapoint
     y_pred_proba = loaded_model.predict(dmatrix_new_data)
     y_pred_label = (y_pred_proba >= 0.5).astype(int)
 
+    # set response value to 0 or 1 based on outcome
     if (y_pred_label[0] == 0):
         result = "team2"
     else:
